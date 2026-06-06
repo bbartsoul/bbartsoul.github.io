@@ -144,6 +144,7 @@
             font-size: 16px;
             transition: all 0.2s ease;
             box-sizing: border-box;
+            cursor: pointer;
         }
         .link-btn:hover {
             background-color: #30363d;
@@ -168,6 +169,68 @@
             background-color: #2ea043;
             border-color: #3fb950;
         }
+
+        /* Стили для формы */
+        #contact-form-container {
+            display: none; /* Скрыта по умолчанию */
+            margin-top: 15px;
+            text-align: left;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            color: #8b949e;
+            margin-bottom: 5px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 14px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #58a6ff;
+        }
+        textarea.form-input {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #58a6ff;
+            border: none;
+            border-radius: 6px;
+            color: #0d1117;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover {
+            background-color: #79c0ff;
+        }
+
     </style>
 </head>
 <body>
@@ -195,17 +258,50 @@
             </div>
         </details>
 
-        <!-- Ссылки (Теперь в них сразу вшит текст и иконки по умолчанию) -->
+        <!-- Ссылки -->
         <a href="https://t.me/baosag" class="link-btn" id="link-tg"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</a>
         <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
         <a href="https://vimeo.com/bbart" class="link-btn" id="link-vim"><i class="fa-brands fa-vimeo-v"></i> Vimeo Video</a>
         <a href="https://www.youtube.com/@BBArtSoul" class="link-btn" id="link-yt"><i class="fa-brands fa-youtube"></i> YouTube Video</a>
         <a href="https://donationalerts.com/твой_акк" class="link-btn donate-btn" id="link-don"><i class="fa-solid fa-mug-hot"></i> Donate</a>
-        <a href="mailto:baobabart@proton.me" class="link-btn" id="link-mail"><i class="fa-solid fa-handshake"></i> Cooperation & Private commissions</a>
+        
+        <!-- Кнопка сотрудничества (открывает форму) -->
+        <button class="link-btn" id="link-mail" onclick="toggleForm()"><i class="fa-solid fa-handshake"></i> Cooperation & Private commissions</button>
+
+        <!-- Скрытая форма -->
+        <div id="contact-form-container">
+            <!-- Вставлена ваша ссылка Formspree -->
+            <form id="contact-form" action="https://formspree.io/f/xvznzngo" method="POST">
+                <div class="form-group">
+                    <label id="label-name">Your Name</label>
+                    <input type="text" name="name" class="form-input" required id="placeholder-name" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label id="label-contact">Email or Telegram</label>
+                    <input type="text" name="contact" class="form-input" required id="placeholder-contact" placeholder="john@example.com or @username">
+                </div>
+                <div class="form-group">
+                    <label id="label-message">Message (max 1000 chars)</label>
+                    <textarea name="message" class="form-input" maxlength="1000" required id="placeholder-message" placeholder="Tell me about your idea..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="form-submit">Send Request</button>
+            </form>
+        </div>
 
     </div>
 
     <script>
+        function toggleForm() {
+            var formContainer = document.getElementById("contact-form-container");
+            if (formContainer.style.display === "none" || formContainer.style.display === "") {
+                formContainer.style.display = "block";
+                // Прокрутка к форме
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                formContainer.style.display = "none";
+            }
+        }
+
         const translations = {
             en: {
                 subtitle: "Breathing life into aesthetics. All my mirrors are here.",
@@ -222,7 +318,15 @@
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Vimeo Video',
                 linkYt: '<i class="fa-brands fa-youtube"></i> YouTube Video',
                 linkDon: '<i class="fa-solid fa-mug-hot"></i> Donate',
-                linkMail: '<i class="fa-solid fa-handshake"></i> Cooperation & Private commissions'
+                linkMail: '<i class="fa-solid fa-handshake"></i> Cooperation & Private commissions',
+                // Переводы формы
+                labelName: "Your Name",
+                labelContact: "Email or Telegram",
+                labelMessage: "Message (max 1000 chars)",
+                placeholderName: "John Doe",
+                placeholderContact: "john@example.com or @username",
+                placeholderMessage: "Tell me about your idea...",
+                formSubmit: "Send Request"
             },
             ru: {
                 subtitle: "Оживляю эстетику. Тут все мои зеркала",
@@ -239,7 +343,15 @@
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Видео на Vimeo',
                 linkYt: '<i class="fa-brands fa-youtube"></i> Видео на YouTube',
                 linkDon: '<i class="fa-solid fa-mug-hot"></i> Поддержать проект',
-                linkMail: '<i class="fa-solid fa-handshake"></i> Сотрудничество и заказы'
+                linkMail: '<i class="fa-solid fa-handshake"></i> Сотрудничество и заказы',
+                // Переводы формы
+                labelName: "Ваше Имя",
+                labelContact: "Email или Telegram",
+                labelMessage: "Сообщение (макс. 1000 знаков)",
+                placeholderName: "Иван Иванов",
+                placeholderContact: "ivan@email.com или @username",
+                placeholderMessage: "Расскажите о вашей идее...",
+                formSubmit: "Отправить заявку"
             }
         };
 
@@ -255,6 +367,15 @@
             document.getElementById('link-yt').innerHTML = translations[lang].linkYt;
             document.getElementById('link-don').innerHTML = translations[lang].linkDon;
             document.getElementById('link-mail').innerHTML = translations[lang].linkMail;
+
+            // Обновление формы
+            document.getElementById('label-name').textContent = translations[lang].labelName;
+            document.getElementById('label-contact').textContent = translations[lang].labelContact;
+            document.getElementById('label-message').textContent = translations[lang].labelMessage;
+            document.getElementById('placeholder-name').placeholder = translations[lang].placeholderName;
+            document.getElementById('placeholder-contact').placeholder = translations[lang].placeholderContact;
+            document.getElementById('placeholder-message').placeholder = translations[lang].placeholderMessage;
+            document.getElementById('form-submit').textContent = translations[lang].formSubmit;
 
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
