@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BB Art Soul | Links</title>
+    <!-- Подключаем библиотеку иконок FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             background-color: #0d1117;
@@ -83,7 +85,7 @@
         summary {
             padding: 15px;
             font-weight: bold;
-            font-size: 16px; /* Увеличен размер шрифта заголовка спойлера */
+            font-size: 16px;
             color: #c9d1d9;
             cursor: pointer;
             list-style: none;
@@ -108,14 +110,14 @@
         }
         .details-content {
             padding: 15px;
-            font-size: 16px; /* УВЕЛИЧЕННЫЙ РАЗМЕР ТЕКСТА ОПИСАНИЯ */
+            font-size: 16px;
             line-height: 1.8;
             color: #8b949e;
         }
         .details-content p {
             margin-top: 0;
             margin-bottom: 12px;
-            font-size: 16px; /* Добавили жесткое правило для абзацев спойлера */
+            font-size: 16px;
         }
         .details-content p:last-child {
             margin-bottom: 0;
@@ -127,7 +129,9 @@
 
         /* Кнопки ссылок */
         .link-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             padding: 15px;
             margin-bottom: 15px;
@@ -148,6 +152,12 @@
             transform: translateY(-2px);
         }
         
+        /* Отступ для иконок внутри кнопки */
+        .link-btn i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
         /* Выделенная кнопка доната */
         .donate-btn {
             background-color: #238636;
@@ -173,25 +183,25 @@
 
         <!-- Спойлер с текстом -->
         <details id="spoiler">
-            <summary id="spoiler-title">About the Author & Beyond by BAO</summary>
+            <summary id="spoiler-title">About the Author & Beyond by BB Art</summary>
             <div class="details-content" id="spoiler-content">
                 <p>Hi, I'm Bao!</p>
                 <p>About two years ago, I discovered AI generative art. As a former professional photographer, I cannot stand visual compromise, so my main passion is flawless photorealism. It's incredible to see how, in a short time, technology has advanced from timid experiments to results indistinguishable from reality. Today, neural networks have reached a level where the line between the real and the generated is blurred — and this philosophical uncertainty is the core of my work.</p>
                 <p>Having started with creating static artistic images, with the advent of video models, I plunged into <span class="highlight">vivifications</span> — the process of bringing my art and real photographs to life. I also enjoy bringing back to life old, time-damaged, and black-and-white shots.</p>
-                <p>But the main focus of my work lately is the <span class="highlight">Beyond by BAO</span> project. This is an exploration of the space beyond the frame. For me, the original shot is just a keyhole. We see only a fragment, but what is hiding to the left? Where does the hero's gaze go? What will happen to him a minute later? I preserve the essence of the original, but create a whole alternative universe around it, previously unseen.</p>
+                <p>But the main focus of my work lately is the <span class="highlight">Beyond by BB Art</span> project. This is an exploration of the space beyond the frame. For me, the original shot is just a keyhole. We see only a fragment, but what is hiding to the left? Where does the hero's gaze go? What will happen to him a minute later? I preserve the essence of the original, but create a whole alternative universe around it, previously unseen.</p>
                 <p>Technology allows me to stitch documentary reality and fiction together so that the seam becomes invisible. Fact and fantasy merge into one. I create beauty in all its forms — from visual art to poetry — capturing the fragility of the moment by any means available.</p>
                 <p>All my artistic experiments exist on pure enthusiasm and require considerable personal resources. I sincerely ache for beauty, and your likes and warm comments always remain my main reward. However, if my work is especially close to you, you can support the project financially via the donate link below.</p>
                 <p>I am also open for private commissions: I can expand the boundaries of reality and create a unique story from any photograph dear to your heart, following your own script.</p>
             </div>
         </details>
 
-        <!-- Ссылки -->
-        <a href="https://t.me/baosag" class="link-btn" id="link-tg">My Telegram Gallery</a>
-        <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt">TikTok</a>
-        <a href="https://vimeo.com/bbart" class="link-btn" id="link-vim">Vimeo Video</a>
-        <a href="https://www.youtube.com/@BBArtSoul" class="link-btn" id="link-yt">YouTube Video</a>
-        <a href="https://donationalerts.com/твой_акк" class="link-btn donate-btn" id="link-don">Donate ☕️</a>
-        <a href="mailto:baobabart@proton.me" class="link-btn" id="link-mail">Cooperation & Private commissions 🤝</a>
+        <!-- Ссылки (Теперь в них сразу вшит текст и иконки по умолчанию) -->
+        <a href="https://t.me/baosag" class="link-btn" id="link-tg"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</a>
+        <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+        <a href="https://vimeo.com/bbart" class="link-btn" id="link-vim"><i class="fa-brands fa-vimeo-v"></i> Vimeo Video</a>
+        <a href="https://www.youtube.com/@BBArtSoul" class="link-btn" id="link-yt"><i class="fa-brands fa-youtube"></i> YouTube Video</a>
+        <a href="https://donationalerts.com/твой_акк" class="link-btn donate-btn" id="link-don"><i class="fa-solid fa-mug-hot"></i> Donate</a>
+        <a href="mailto:baobabart@proton.me" class="link-btn" id="link-mail"><i class="fa-solid fa-handshake"></i> Cooperation & Private commissions</a>
 
     </div>
 
@@ -199,69 +209,64 @@
         const translations = {
             en: {
                 subtitle: "Breathing life into aesthetics. All my mirrors are here.",
-                spoilerTitle: "About the Author & Beyond by BAO",
+                spoilerTitle: "About the Author & Beyond by BB Art",
                 spoilerContent: `<p>Hi, I'm Bao!</p>
                     <p>About two years ago, I discovered AI generative art. As a former professional photographer, I cannot stand visual compromise, so my main passion is flawless photorealism. It's incredible to see how, in a short time, technology has advanced from timid experiments to results indistinguishable from reality. Today, neural networks have reached a level where the line between the real and the generated is blurred — and this philosophical uncertainty is the core of my work.</p>
                     <p>Having started with creating static artistic images, with the advent of video models, I plunged into <span class="highlight">vivifications</span> — the process of bringing my art and real photographs to life. I also enjoy bringing back to life old, time-damaged, and black-and-white shots.</p>
-                    <p>But the main focus of my work lately is the <span class="highlight">Beyond by BAO</span> project. This is an exploration of the space beyond the frame. For me, the original shot is just a keyhole. We see only a fragment, but what is hiding to the left? Where does the hero's gaze go? What will happen to him a minute later? I preserve the essence of the original, but create a whole alternative universe around it, previously unseen.</p>
+                    <p>But the main focus of my work lately is the <span class="highlight">Beyond by BB Art</span> project. This is an exploration of the space beyond the frame. For me, the original shot is just a keyhole. We see only a fragment, but what is hiding to the left? Where does the hero's gaze go? What will happen to him a minute later? I preserve the essence of the original, but create a whole alternative universe around it, previously unseen.</p>
                     <p>Technology allows me to stitch documentary reality and fiction together so that the seam becomes invisible. Fact and fantasy merge into one. I create beauty in all its forms — from visual art to poetry — capturing the fragility of the moment by any means available.</p>
                     <p>All my artistic experiments exist on pure enthusiasm and require considerable personal resources. I sincerely ache for beauty, and your likes and warm comments always remain my main reward. However, if my work is especially close to you, you can support the project financially via the donate link below.</p>
                     <p>I am also open for private commissions: I can expand the boundaries of reality and create a unique story from any photograph dear to your heart, following your own script.</p>`,
-                linkTg: "My Telegram Gallery",
-                linkTt: "TikTok",
-                linkVim: "Vimeo Video",
-                linkYt: "YouTube Video",
-                linkDon: "Donate ☕️",
-                linkMail: "Cooperation & Private commissions 🤝"
+                linkTg: '<i class="fa-brands fa-telegram"></i> My Telegram Gallery',
+                linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
+                linkVim: '<i class="fa-brands fa-vimeo-v"></i> Vimeo Video',
+                linkYt: '<i class="fa-brands fa-youtube"></i> YouTube Video',
+                linkDon: '<i class="fa-solid fa-mug-hot"></i> Donate',
+                linkMail: '<i class="fa-solid fa-handshake"></i> Cooperation & Private commissions'
             },
             ru: {
                 subtitle: "Оживляю эстетику. Тут все мои зеркала",
-                spoilerTitle: "Об авторе и проекте Beyond by BAO",
+                spoilerTitle: "Об авторе и проекте Beyond by BB Art",
                 spoilerContent: `<p>Привет, я Бао!</p>
                     <p>Около двух лет назад я открыл для себя генеративное искусство. Как профессиональный фотограф в прошлом, я не приемлю визуальной компромиссности, поэтому моя главная страсть — безупречный фотореализм. Невероятно наблюдать, как за короткий срок технологии продвинулись от робких экспериментов к результатам, неотличимым от реальности. Сегодня нейросети достигли уровня, при котором грань между реальным и сгенерированным стирается — и именно эта философская неопределенность является ядром моей работы.</p>
                     <p>Начав с создания статичных художественных образов, с появлением видеомоделей я погрузился в <span class="highlight">vivifications</span> — процесс оживления своих артов и реальных фотографий. Мне также нравится возвращать жизнь старым, пострадавшим от времени и черно-белым снимкам.</p>
-                    <p>Но главный фокус моей работы в последнее время — проект <span class="highlight">Beyond by BAO</span>. Это исследование пространства за пределами кадра. Исходный снимок для меня — лишь замочная скважина. Мы видим лишь фрагмент, но что скрывается слева? Куда уходит взгляд героя? Что случится с ним минутой позже? Я сохраняю суть оригинала, но создаю вокруг него целую альтернативную вселенную, невидимую прежде.</p>
+                    <p>Но главный фокус моей работы в последнее время — проект <span class="highlight">Beyond by BB Art</span>. Это исследование пространства за пределами кадра. Исходный снимок для меня — лишь замочная скважина. Мы видим лишь фрагмент, но что скрывается слева? Куда уходит взгляд героя? Что случится с ним минутой позже? Я сохраняю суть оригинала, но создаю вокруг него целую альтернативную вселенную, невидимую прежде.</p>
                     <p>Технологии позволяют мне сшивать документальную реальность и вымысел так, что шов становится невидимым. Факт и фантазия сливаются воедино. Я создаю красоту во всех её формах — от визуального арта до поэзии, — фиксируя хрупкость момента любыми доступными средствами.</p>
                     <p>Все мои художественные опыты существуют на чистом энтузиазме и требуют немалых личных ресурсов. Я искренне болею красотой, и главной наградой для меня всегда остаются ваши лайки и теплые комментарии. Однако, если мое творчество особенно близко вам, вы можете поддержать проект материально через донат ниже.</p>
                     <p>Также я открыт для индивидуальных заказов: я могу раздвинуть границы реальности и создать уникальную историю из любой дорогой вам фотографии по вашему собственному сценарию.</p>`,
-                linkTg: "Мой Telegram-канал",
-                linkTt: "TikTok",
-                linkVim: "Видео на Vimeo",
-                linkYt: "Видео на YouTube",
-                linkDon: "Поддержать проект ☕️",
-                linkMail: "Сотрудничество и частные заказы 🤝"
+                linkTg: '<i class="fa-brands fa-telegram"></i> Мой Telegram-канал',
+                linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
+                linkVim: '<i class="fa-brands fa-vimeo-v"></i> Видео на Vimeo',
+                linkYt: '<i class="fa-brands fa-youtube"></i> Видео на YouTube',
+                linkDon: '<i class="fa-solid fa-mug-hot"></i> Поддержать проект',
+                linkMail: '<i class="fa-solid fa-handshake"></i> Сотрудничество и заказы'
             }
         };
 
         function setLanguage(lang) {
-            // Обновляем текст на странице
             document.documentElement.lang = lang;
             document.getElementById('subtitle').textContent = translations[lang].subtitle;
             document.getElementById('spoiler-title').textContent = translations[lang].spoilerTitle;
             document.getElementById('spoiler-content').innerHTML = translations[lang].spoilerContent;
             
-            document.getElementById('link-tg').textContent = translations[lang].linkTg;
-            document.getElementById('link-tt').textContent = translations[lang].linkTt;
-            document.getElementById('link-vim').textContent = translations[lang].linkVim;
-            document.getElementById('link-yt').textContent = translations[lang].linkYt;
-            document.getElementById('link-don').textContent = translations[lang].linkDon;
-            document.getElementById('link-mail').textContent = translations[lang].linkMail;
+            document.getElementById('link-tg').innerHTML = translations[lang].linkTg;
+            document.getElementById('link-tt').innerHTML = translations[lang].linkTt;
+            document.getElementById('link-vim').innerHTML = translations[lang].linkVim;
+            document.getElementById('link-yt').innerHTML = translations[lang].linkYt;
+            document.getElementById('link-don').innerHTML = translations[lang].linkDon;
+            document.getElementById('link-mail').innerHTML = translations[lang].linkMail;
 
-            // Обновляем активную кнопку
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
 
-            // Сохраняем выбор в память браузера
             localStorage.setItem('lang', lang);
         }
 
-        // Определяем язык при загрузке страницы
         window.onload = function() {
             let savedLang = localStorage.getItem('lang');
             if (savedLang) {
                 setLanguage(savedLang);
             } else {
-                // Если язык не сохранен, проверяем язык браузера
                 let userLang = navigator.language || navigator.userLanguage;
                 let initialLang = userLang.startsWith('ru') ? 'ru' : 'en';
                 setLanguage(initialLang);
