@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BB Art Soul | Links</title>
-    <!-- Подключаем библиотеку иконок FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -26,8 +25,6 @@
             padding: 20px;
             position: relative;
         }
-
-        /* Переключатель языков */
         .lang-switcher {
             position: absolute;
             top: -10px;
@@ -55,8 +52,6 @@
             border-color: #58a6ff;
             color: #ffffff;
         }
-
-        /* Логотип */
         .logo {
             width: 150px;
             height: auto;
@@ -66,14 +61,11 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         p {
             font-size: 15px;
             color: #8b949e;
             margin-bottom: 30px;
         }
-
-        /* Стилизация спойлера */
         details {
             background-color: #161b22;
             border: 1px solid #30363d;
@@ -126,8 +118,6 @@
             color: #58a6ff;
             font-weight: bold;
         }
-
-        /* Кнопки ссылок */
         .link-btn {
             display: flex;
             justify-content: center;
@@ -152,30 +142,24 @@
             color: #ffffff;
             transform: translateY(-2px);
         }
-        
-        /* Отступ для иконок внутри кнопки */
         .link-btn i {
             margin-right: 10px;
             font-size: 18px;
         }
-
-        /* Выделенная кнопка доната */
         .donate-btn {
             background-color: #238636;
             border-color: #2ea043;
             color: #ffffff;
-            position: relative; /* Для позиционирования тултипа */
+            position: relative;
         }
         .donate-btn:hover {
             background-color: #2ea043;
             border-color: #3fb950;
         }
-
-        /* Тултип (Подсказка) для кнопки доната */
         .donate-btn::before {
             content: attr(data-tooltip);
             position: absolute;
-            bottom: 105%; /* Расположение над кнопкой */
+            bottom: 105%;
             left: 50%;
             transform: translateX(-50%);
             background-color: #161b22;
@@ -196,10 +180,8 @@
             opacity: 1;
             visibility: visible;
         }
-
-        /* Стили для формы */
         #contact-form-container {
-            display: none; /* Скрыта по умолчанию */
+            display: none;
             margin-top: 15px;
             text-align: left;
             background-color: #161b22;
@@ -208,12 +190,10 @@
             padding: 20px;
             animation: slideDown 0.3s ease-out;
         }
-
         @keyframes slideDown {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .form-group {
             margin-bottom: 15px;
         }
@@ -257,12 +237,10 @@
         .submit-btn:hover {
             background-color: #79c0ff;
         }
-
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Переключатель языков -->
         <div class="lang-switcher">
             <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">EN</button>
             <button class="lang-btn" id="btn-ru" onclick="setLanguage('ru')">RU</button>
@@ -271,33 +249,29 @@
         <img src="BB-Art.png" alt="BB Art Logo" class="logo">
         <p id="subtitle">Breathing life into aesthetics. All my mirrors are here.</p>
 
-        <!-- Спойлер с текстом -->
         <details id="spoiler">
             <summary id="spoiler-title">About the Author & Beyond by BB Art</summary>
             <div class="details-content" id="spoiler-content">
                 <p>Hi, I'm Bao!</p>
-                <p>About two years ago, I discovered AI generative art. As a former professional photographer, I cannot stand visual compromise, so my main passion is flawless photorealism. It's incredible to see how, in a short time, technology has advanced from timid experiments to results indistinguishable from reality. Today, neural networks have reached a level where the line between the real and the generated is blurred — and this philosophical uncertainty is the core of my work.</p>
-                <p>Having started with creating static artistic images, with the advent of video models, I plunged into <span class="highlight">vivifications</span> — the process of bringing my art and real photographs to life. I also enjoy bringing back to life old, time-damaged, and black-and-white shots.</p>
-                <p>But the main focus of my work lately is the <span class="highlight">Beyond by BB Art</span> project. This is an exploration of the space beyond the frame. For me, the original shot is just a keyhole. We see only a fragment, but what is hiding to the left? Where does the hero's gaze go? What will happen to him a minute later? I preserve the essence of the original, but create a whole alternative universe around it, previously unseen.</p>
-                <p>Technology allows me to stitch documentary reality and fiction together so that the seam becomes invisible. Fact and fantasy merge into one. I create beauty in all its forms — from visual art to poetry — capturing the fragility of the moment by any means available.</p>
-                <p>All my artistic experiments exist on pure enthusiasm and require considerable personal resources. I sincerely ache for beauty, and your likes and warm comments always remain my main reward. However, if my work is especially close to you, you can support the project financially via the donate link below.</p>
-                <p>I am also open for private commissions: I can expand the boundaries of reality and create a unique story from any photograph dear to your heart, following your own script.</p>
+                <p>About two years ago, I got heavily into neural networks. As a former pro photographer, I can't stand compromises in quality, so my main obsession is flawless photorealism. It's funny: just yesterday AI was churning out plastic six-fingered mutants, and today even I, with a trained eye, often can't distinguish some generations from real photos. The line between the real and the generated is thinning every day – and I don't know about you, but this process wildly motivates and hooks me, resonating with my philosophical ideas.</p>
+                <p>At first, I just generated beautiful photos, but when neural networks learned to produce good video quality, I got hooked on vivifications – bringing my best works, others' works, and real photographs to life. I also love restoring retro photography classics (old, time-damaged shots).</p>
+                <p>But my main focus right now is the reality expansion project, <span class="highlight">Beyond by BB Art</span>. This is essentially stepping beyond the visible frame. For me, the original shot is just a keyhole. We see only a fragment captured by the lens, but what is there on the right? On the left? Where is the hero looking? What happens a minute later? I take the essence of the original, preserving the appearance and atmosphere of the shot, and build an entire alternative universe around it, limited only by my imagination :)</p>
+                <p>Technology lets me stitch fact and fiction together so tightly that the seam disappears. You no longer know where reality ends and my fantasy begins. And this is truly impressive and amazing.</p>
+                <p>I try to capture beauty in all its forms and manifestations – from visuals (photos, videos, art) to literary stories and poetry. But my main passion remains photography and cinematography. My dream is to one day shoot a feature film that will be hard to distinguish from reality, and I am gradually moving towards this dream.</p>
+                <p>All this magic runs on bare enthusiasm and drains my time and significant financial resources. I sincerely ache for beauty, and your likes and warm comments are my main reward. But if my work resonates with you, you can support the project financially via the donate link below.</p>
+                <p>I'm also open for private commissions: I can expand the boundaries of reality and create a unique story from any photograph dear to your heart, following your or my script.</p>
             </div>
         </details>
 
-        <!-- Ссылки -->
         <a href="https://t.me/baosag" class="link-btn" id="link-tg"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</a>
         <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
         <a href="https://vimeo.com/bbart" class="link-btn" id="link-vim"><i class="fa-brands fa-vimeo-v"></i> Vimeo Video</a>
         <a href="https://www.youtube.com/@BBArtSoul" class="link-btn" id="link-yt"><i class="fa-brands fa-youtube"></i> YouTube Video</a>
         
-        <!-- Кнопка доната NowPayments с красивой ссылкой и тултипом -->
         <a href="https://nowpayments.io/donation/bbart" class="link-btn donate-btn" id="link-don" target="_blank" rel="noreferrer noopener" data-tooltip="Powered by NowPayments" title="Powered by NowPayments"><i class="fa-solid fa-mug-hot"></i> Donate</a>
         
-        <!-- Кнопка сотрудничества (открывает форму) -->
         <button class="link-btn" id="link-mail" onclick="toggleForm()"><i class="fa-solid fa-handshake"></i> Cooperation & Private commissions</button>
 
-        <!-- Скрытая форма -->
         <div id="contact-form-container">
             <form id="contact-form" action="https://formspree.io/f/xvznzngo" method="POST">
                 <div class="form-group">
@@ -334,12 +308,13 @@
                 subtitle: "Breathing life into aesthetics. All my mirrors are here.",
                 spoilerTitle: "About the Author & Beyond by BB Art",
                 spoilerContent: `<p>Hi, I'm Bao!</p>
-                    <p>About two years ago, I discovered AI generative art. As a former professional photographer, I cannot stand visual compromise, so my main passion is flawless photorealism. It's incredible to see how, in a short time, technology has advanced from timid experiments to results indistinguishable from reality. Today, neural networks have reached a level where the line between the real and the generated is blurred — and this philosophical uncertainty is the core of my work.</p>
-                    <p>Having started with creating static artistic images, with the advent of video models, I plunged into <span class="highlight">vivifications</span> — the process of bringing my art and real photographs to life. I also enjoy bringing back to life old, time-damaged, and black-and-white shots.</p>
-                    <p>But the main focus of my work lately is the <span class="highlight">Beyond by BB Art</span> project. This is an exploration of the space beyond the frame. For me, the original shot is just a keyhole. We see only a fragment, but what is hiding to the left? Where does the hero's gaze go? What will happen to him a minute later? I preserve the essence of the original, but create a whole alternative universe around it, previously unseen.</p>
-                    <p>Technology allows me to stitch documentary reality and fiction together so that the seam becomes invisible. Fact and fantasy merge into one. I create beauty in all its forms — from visual art to poetry — capturing the fragility of the moment by any means available.</p>
-                    <p>All my artistic experiments exist on pure enthusiasm and require considerable personal resources. I sincerely ache for beauty, and your likes and warm comments always remain my main reward. However, if my work is especially close to you, you can support the project financially via the donate link below.</p>
-                    <p>I am also open for private commissions: I can expand the boundaries of reality and create a unique story from any photograph dear to your heart, following your own script.</p>`,
+                    <p>About two years ago, I got heavily into neural networks. As a former pro photographer, I can't stand compromises in quality, so my main obsession is flawless photorealism. It's funny: just yesterday AI was churning out plastic six-fingered mutants, and today even I, with a trained eye, often can't distinguish some generations from real photos. The line between the real and the generated is thinning every day – and I don't know about you, but this process wildly motivates and hooks me, resonating with my philosophical ideas.</p>
+                    <p>At first, I just generated beautiful photos, but when neural networks learned to produce good video quality, I got hooked on vivifications – bringing my best works, others' works, and real photographs to life. I also love restoring retro photography classics (old, time-damaged shots).</p>
+                    <p>But my main focus right now is the reality expansion project, <span class="highlight">Beyond by BB Art</span>. This is essentially stepping beyond the visible frame. For me, the original shot is just a keyhole. We see only a fragment captured by the lens, but what is there on the right? On the left? Where is the hero looking? What happens a minute later? I take the essence of the original, preserving the appearance and atmosphere of the shot, and build an entire alternative universe around it, limited only by my imagination :)</p>
+                    <p>Technology lets me stitch fact and fiction together so tightly that the seam disappears. You no longer know where reality ends and my fantasy begins. And this is truly impressive and amazing.</p>
+                    <p>I try to capture beauty in all its forms and manifestations – from visuals (photos, videos, art) to literary stories and poetry. But my main passion remains photography and cinematography. My dream is to one day shoot a feature film that will be hard to distinguish from reality, and I am gradually moving towards this dream.</p>
+                    <p>All this magic runs on bare enthusiasm and drains my time and significant financial resources. I sincerely ache for beauty, and your likes and warm comments are my main reward. But if my work resonates with you, you can support the project financially via the donate link below.</p>
+                    <p>I'm also open for private commissions: I can expand the boundaries of reality and create a unique story from any photograph dear to your heart, following your or my script.</p>`,
                 linkTg: '<i class="fa-brands fa-telegram"></i> My Telegram Gallery',
                 linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Vimeo Video',
@@ -359,12 +334,13 @@
                 subtitle: "Оживляю эстетику. Тут все мои зеркала",
                 spoilerTitle: "Об авторе и проекте Beyond by BB Art",
                 spoilerContent: `<p>Привет, я Бао!</p>
-                    <p>Около двух лет назад я открыл для себя генеративное искусство. Как профессиональный фотограф в прошлом, я не приемлю визуальной компромиссности, поэтому моя главная страсть — безупречный фотореализм. Невероятно наблюдать, как за короткий срок технологии продвинулись от робких экспериментов к результатам, неотличимым от реальности. Сегодня нейросети достигли уровня, при котором грань между реальным и сгенерированным стирается — и именно эта философская неопределенность является ядром моей работы.</p>
-                    <p>Начав с создания статичных художественных образов, с появлением видеомоделей я погрузился в <span class="highlight">vivifications</span> — процесс оживления своих артов и реальных фотографий. Мне также нравится возвращать жизнь старым, пострадавшим от времени и черно-белым снимкам.</p>
-                    <p>Но главный фокус моей работы в последнее время — проект <span class="highlight">Beyond by BB Art</span>. Это исследование пространства за пределами кадра. Исходный снимок для меня — лишь замочная скважина. Мы видим лишь фрагмент, но что скрывается слева? Куда уходит взгляд героя? Что случится с ним минутой позже? Я сохраняю суть оригинала, но создаю вокруг него целую альтернативную вселенную, невидимую прежде.</p>
-                    <p>Технологии позволяют мне сшивать документальную реальность и вымысел так, что шов становится невидимым. Факт и фантазия сливаются воедино. Я создаю красоту во всех её формах — от визуального арта до поэзии, — фиксируя хрупкость момента любыми доступными средствами.</p>
-                    <p>Все мои художественные опыты существуют на чистом энтузиазме и требуют немалых личных ресурсов. Я искренне болею красотой, и главной наградой для меня всегда остаются ваши лайки и теплые комментарии. Однако, если мое творчество особенно близко вам, вы можете поддержать проект материально через донат ниже.</p>
-                    <p>Также я открыт для индивидуальных заказов: я могу раздвинуть границы реальности и создать уникальную историю из любой дорогой вам фотографии по вашему собственному сценарию.</p>`,
+                    <p>Около двух лет назад я плотно подсел на нейронки. Как бывший профи-фотограф, я не терплю компромиссов в качестве, поэтому моя главная страсть – безупречный фотореализм. Забавно: еще вчера ИИ выдавал пластиковых шестипалых мутантов, а сегодня даже я с наметанным глазом часто не могу отличить некоторые генерации от реальных фото. Грань между настоящим и сгенерированным истончается с каждым днем – и не знаю как вас, но меня этот процесс дико мотивирует и цепляет, совпадая с моими философскими идеями.</p>
+                    <p>Сначала я просто генерил красивые фотографии, но когда нейронки научились выдавать хорошее качество видео, я подсел на оживляшки – стал оживлять свои лучшие работы, чужие, и реальные фотографии. А еще обожаю реставрировать классику ретро-фотографии (старые, убитые временем снимки).</p>
+                    <p>Но главный мой фокус сейчас – проект расширения реальности, <span class="highlight">Beyond by BB Art</span>. Это, по сути, выход за рамки видимого нами кадра. Исходный снимок для меня – лишь замочная скважина. Мы видим лишь чётко пойманный фотографом фрагмент, но что там находится справа? Слева? Куда уходит взгляд героя? Что случится минутой позже? Я беру суть оригинала, сохраняя внешность и атмосферу кадра, и строю вокруг целую альтернативную вселенную, которая ограничена лишь полетом моей фантазии :)</p>
+                    <p>Технологии позволяют мне сшивать факт и выдумку так, что шов исчезает. Вы больше не понимаете, где реальность, а где моя фантазия. И это поистине впечатляет и удивляет.</p>
+                    <p>Я стараюсь запечатлеть красоту во всех ее формах и проявлениях – от визуала (фото, видео, арты) до литературных рассказов и поэзии. Но главной моей страстью остается фотография и кинематография. Моя мечта снять когда-то полнометражный фильм, который будет сложно отличить от реальности и я к этой мечте постепенно двигаюсь.</p>
+                    <p>Вся эта магия держится на голом энтузиазме и выкачивает из меня время и немалые финансовые ресурсы. Я искренне болею красотой, и ваши лайки с теплыми комментами – моя главная награда. Но если мое творчество вам особенно близко, можете поддержать проект материально через донат ниже.</p>
+                    <p>Также я открыт для приватных заказов: могу раздвинуть границы реальности и создать уникальную историю из любой дорогой вам фотографии по вашему или моему сценарию.</p>`,
                 linkTg: '<i class="fa-brands fa-telegram"></i> Мой Telegram-канал',
                 linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Видео на Vimeo',
@@ -395,7 +371,6 @@
             document.getElementById('link-don').innerHTML = translations[lang].linkDon;
             document.getElementById('link-mail').innerHTML = translations[lang].linkMail;
 
-            // Обновление тултипа и title для доната
             const donBtn = document.getElementById('link-don');
             donBtn.setAttribute('data-tooltip', translations[lang].tooltipDon);
             donBtn.setAttribute('title', translations[lang].tooltipDon);
