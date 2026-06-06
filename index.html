@@ -12,7 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Изменили на min-height для нормального скролла на телефоне */
+            min-height: 100vh;
             margin: 0;
             padding: 40px 0;
             box-sizing: border-box;
@@ -54,13 +54,19 @@
             color: #ffffff;
         }
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #58a6ff;
+        /* Логотип */
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         p {
-            font-size: 14px;
+            font-size: 15px;
             color: #8b949e;
             margin-bottom: 30px;
         }
@@ -77,7 +83,7 @@
         summary {
             padding: 15px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 16px; /* Увеличен размер шрифта заголовка спойлера */
             color: #c9d1d9;
             cursor: pointer;
             list-style: none;
@@ -102,8 +108,8 @@
         }
         .details-content {
             padding: 15px;
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 16px; /* УВЕЛИЧЕННЫЙ РАЗМЕР ТЕКСТА ОПИСАНИЯ */
+            line-height: 1.8;
             color: #8b949e;
         }
         .details-content p {
@@ -161,12 +167,12 @@
             <button class="lang-btn" id="btn-ru" onclick="setLanguage('ru')">RU</button>
         </div>
 
-        <h1>BB Art</h1>
+        <img src="BB-Art.png" alt="BB Art Logo" class="logo">
         <p id="subtitle">Breathing life into aesthetics. All my mirrors are here.</p>
 
         <!-- Спойлер с текстом -->
         <details id="spoiler">
-            <summary id="spoiler-title">About the Author</summary>
+            <summary id="spoiler-title">About the Author & Beyond by BAO</summary>
             <div class="details-content" id="spoiler-content">
                 <p>Hi, I'm Bao!</p>
                 <p>About two years ago, I discovered AI generative art. As a former professional photographer, I cannot stand visual compromise, so my main passion is flawless photorealism. It's incredible to see how, in a short time, technology has advanced from timid experiments to results indistinguishable from reality. Today, neural networks have reached a level where the line between the real and the generated is blurred — and this philosophical uncertainty is the core of my work.</p>
@@ -192,7 +198,7 @@
         const translations = {
             en: {
                 subtitle: "Breathing life into aesthetics. All my mirrors are here.",
-                spoilerTitle: "About the Author",
+                spoilerTitle: "About the Author & Beyond by BAO",
                 spoilerContent: `<p>Hi, I'm Bao!</p>
                     <p>About two years ago, I discovered AI generative art. As a former professional photographer, I cannot stand visual compromise, so my main passion is flawless photorealism. It's incredible to see how, in a short time, technology has advanced from timid experiments to results indistinguishable from reality. Today, neural networks have reached a level where the line between the real and the generated is blurred — and this philosophical uncertainty is the core of my work.</p>
                     <p>Having started with creating static artistic images, with the advent of video models, I plunged into <span class="highlight">vivifications</span> — the process of bringing my art and real photographs to life. I also enjoy bringing back to life old, time-damaged, and black-and-white shots.</p>
@@ -209,7 +215,7 @@
             },
             ru: {
                 subtitle: "Оживляю эстетику. Тут все мои зеркала",
-                spoilerTitle: "Об авторе",
+                spoilerTitle: "Об авторе и проекте Beyond by BAO",
                 spoilerContent: `<p>Привет, я Бао!</p>
                     <p>Около двух лет назад я открыл для себя генеративное искусство. Как профессиональный фотограф в прошлом, я не приемлю визуальной компромиссности, поэтому моя главная страсть — безупречный фотореализм. Невероятно наблюдать, как за короткий срок технологии продвинулись от робких экспериментов к результатам, неотличимым от реальности. Сегодня нейросети достигли уровня, при котором грань между реальным и сгенерированным стирается — и именно эта философская неопределенность является ядром моей работы.</p>
                     <p>Начав с создания статичных художественных образов, с появлением видеомоделей я погрузился в <span class="highlight">vivifications</span> — процесс оживления своих артов и реальных фотографий. Мне также нравится возвращать жизнь старым, пострадавшим от времени и черно-белым снимкам.</p>
