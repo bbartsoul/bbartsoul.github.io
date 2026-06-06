@@ -164,10 +164,37 @@
             background-color: #238636;
             border-color: #2ea043;
             color: #ffffff;
+            position: relative; /* Для позиционирования тултипа */
         }
         .donate-btn:hover {
             background-color: #2ea043;
             border-color: #3fb950;
+        }
+
+        /* Тултип (Подсказка) для кнопки доната */
+        .donate-btn::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 105%; /* Расположение над кнопкой */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #161b22;
+            color: #8b949e;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: normal;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            border: 1px solid #30363d;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .donate-btn:hover::before {
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Стили для формы */
@@ -263,14 +290,15 @@
         <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
         <a href="https://vimeo.com/bbart" class="link-btn" id="link-vim"><i class="fa-brands fa-vimeo-v"></i> Vimeo Video</a>
         <a href="https://www.youtube.com/@BBArtSoul" class="link-btn" id="link-yt"><i class="fa-brands fa-youtube"></i> YouTube Video</a>
-        <a href="https://donationalerts.com/твой_акк" class="link-btn donate-btn" id="link-don"><i class="fa-solid fa-mug-hot"></i> Donate</a>
+        
+        <!-- Кнопка доната NowPayments с красивой ссылкой и тултипом -->
+        <a href="https://nowpayments.io/donation/bbart" class="link-btn donate-btn" id="link-don" target="_blank" rel="noreferrer noopener" data-tooltip="Powered by NowPayments" title="Powered by NowPayments"><i class="fa-solid fa-mug-hot"></i> Donate</a>
         
         <!-- Кнопка сотрудничества (открывает форму) -->
         <button class="link-btn" id="link-mail" onclick="toggleForm()"><i class="fa-solid fa-handshake"></i> Cooperation & Private commissions</button>
 
         <!-- Скрытая форма -->
         <div id="contact-form-container">
-            <!-- Вставлена ваша ссылка Formspree -->
             <form id="contact-form" action="https://formspree.io/f/xvznzngo" method="POST">
                 <div class="form-group">
                     <label id="label-name">Your Name</label>
@@ -295,7 +323,6 @@
             var formContainer = document.getElementById("contact-form-container");
             if (formContainer.style.display === "none" || formContainer.style.display === "") {
                 formContainer.style.display = "block";
-                // Прокрутка к форме
                 formContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
                 formContainer.style.display = "none";
@@ -318,8 +345,8 @@
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Vimeo Video',
                 linkYt: '<i class="fa-brands fa-youtube"></i> YouTube Video',
                 linkDon: '<i class="fa-solid fa-mug-hot"></i> Donate',
+                tooltipDon: "Powered by NowPayments",
                 linkMail: '<i class="fa-solid fa-handshake"></i> Cooperation & Private commissions',
-                // Переводы формы
                 labelName: "Your Name",
                 labelContact: "Email or Telegram",
                 labelMessage: "Message (max 1000 chars)",
@@ -343,8 +370,8 @@
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Видео на Vimeo',
                 linkYt: '<i class="fa-brands fa-youtube"></i> Видео на YouTube',
                 linkDon: '<i class="fa-solid fa-mug-hot"></i> Поддержать проект',
+                tooltipDon: "Через NowPayments",
                 linkMail: '<i class="fa-solid fa-handshake"></i> Сотрудничество и заказы',
-                // Переводы формы
                 labelName: "Ваше Имя",
                 labelContact: "Email или Telegram",
                 labelMessage: "Сообщение (макс. 1000 знаков)",
@@ -368,7 +395,11 @@
             document.getElementById('link-don').innerHTML = translations[lang].linkDon;
             document.getElementById('link-mail').innerHTML = translations[lang].linkMail;
 
-            // Обновление формы
+            // Обновление тултипа и title для доната
+            const donBtn = document.getElementById('link-don');
+            donBtn.setAttribute('data-tooltip', translations[lang].tooltipDon);
+            donBtn.setAttribute('title', translations[lang].tooltipDon);
+
             document.getElementById('label-name').textContent = translations[lang].labelName;
             document.getElementById('label-contact').textContent = translations[lang].labelContact;
             document.getElementById('label-message').textContent = translations[lang].labelMessage;
