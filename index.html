@@ -1,3 +1,8 @@
+Готово! Я добавил кнопку X.com (бывший Twitter) сразу после Telegram, использовал иконку в том же стиле (через Font Awesome) и добавил заметную пульсирующую плашку "New" / "Новое", которая меняет язык вместе со всей страницей.
+
+Вот полный обновленный код для размещения:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,6 +150,7 @@
             transition: all 0.2s ease;
             box-sizing: border-box;
             cursor: pointer;
+            position: relative; /* Добавлено для позиционирования плашки */
         }
         .link-btn:hover {
             background-color: #30363d;
@@ -156,6 +162,31 @@
             margin-right: 10px;
             font-size: 18px;
         }
+        
+        /* Стили для плашки New */
+        .badge-new {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background-color: #f85149; /* Яркий красный цвет GitHub */
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+            animation: pulse-badge 2s infinite;
+            z-index: 5;
+        }
+        @keyframes pulse-badge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         .donate-btn {
             background-color: #238636;
             border-color: #2ea043;
@@ -274,6 +305,10 @@
         </details>
 
         <a href="https://t.me/baosag" class="link-btn" id="link-tg"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</a>
+        
+        <!-- Добавлена кнопка X.com -->
+        <a href="https://x.com/bbartsoul" class="link-btn" id="link-x" target="_blank" rel="noopener noreferrer"><span class="badge-new">New</span><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+        
         <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
         <a href="https://vimeo.com/bbart" class="link-btn" id="link-vim"><i class="fa-brands fa-vimeo-v"></i> Vimeo Video</a>
         <a href="https://imgsrc.ru/baobaby" class="link-btn" id="link-imgsrc"><i class="fa-solid fa-images"></i> Official Photo Hosting</a>
@@ -326,6 +361,7 @@
                     <p>All this magic so far runs on pure enthusiasm, draining my time and very real resources. I sincerely ache for aesthetics, and your warm comments are the best band-aid for any bans. But if my visual world is especially close to you, you can always throw some fuel into my reactor via the donate button below (unfortunately, for now, this is only possible via cryptocurrency). Paying for numerous subscriptions to the most advanced AI services is sometimes a very expensive pleasure that I cannot always afford. Therefore, if you like what I do and would like me to continue and improve the quality of my work - you can write to me with a proposed donation amount. I will send you a link to pay for a subscription that I currently need (in this case, payment by card is possible).</p>
                     <p><b>P.S.</b> Generally, I do not like asking for donations, but I am ready to work for them - I am open for private commissions. I am ready to push the boundaries of reality for any photograph dear to you and create a unique cinematic story out of it - following your script or mine. Write to me via the form below.</p>`,
                 linkTg: '<i class="fa-brands fa-telegram"></i> My Telegram Gallery',
+                linkX: '<span class="badge-new">New</span><i class="fa-brands fa-x-twitter"></i> X (Twitter)',
                 linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Vimeo Video',
                 linkImgsrc: '<i class="fa-solid fa-images"></i> Official Photo Hosting',
@@ -352,6 +388,7 @@
                     <p>Вся эта магия пока держится на чистом энтузиазме, выкачивая из меня время и вполне реальные ресурсы. Я искренне болею эстетикой, и ваши теплые комментарии - лучший пластырь от любых блокировок. Но если мой визуальный мир вам особенно близок, вы всегда можете подкинуть топлива в мой реактор через кнопку доната ниже (к сожалению, пока это возможно сделать только посредством криптовалюты). Оплата многочисленных подписок на самые передовые ИИ-сервисы - порой очень дорогое удовольствие, которое не всегда мне по карману. Поэтому, если вам нравится то, что я делаю, и вы бы хотели, чтобы я продолжал и повышал качество своих работ - можете написать мне с предложением суммы доната. Я пришлю вам ссылку на оплату подписки, которая мне на данный момент необходима (в этом случае оплата возможна по карте).</p>
                     <p><b>P.S.</b> Вообще я не люблю просить донаты, но я готов их отработать - я открыт для приватных заказов. Готов раздвинуть границы реальности для любой дорогой вам фотографии и создать из нее уникальную кинематографичную историю - по вашему или моему сценарию. Напишите мне через форму ниже.</p>`,
                 linkTg: '<i class="fa-brands fa-telegram"></i> Мой Telegram-канал',
+                linkX: '<span class="badge-new">Новое</span><i class="fa-brands fa-x-twitter"></i> X (Twitter)',
                 linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Видео на Vimeo',
                 linkImgsrc: '<i class="fa-solid fa-images"></i> Официальный фотохостинг',
@@ -375,6 +412,7 @@
             document.getElementById('spoiler-content').innerHTML = translations[lang].spoilerContent;
             
             document.getElementById('link-tg').innerHTML = translations[lang].linkTg;
+            document.getElementById('link-x').innerHTML = translations[lang].linkX; // Обновление кнопки X
             document.getElementById('link-tt').innerHTML = translations[lang].linkTt;
             document.getElementById('link-vim').innerHTML = translations[lang].linkVim;
             document.getElementById('link-imgsrc').innerHTML = translations[lang].linkImgsrc;
@@ -412,3 +450,4 @@
     </script>
 </body>
 </html>
+```
