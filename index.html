@@ -145,7 +145,7 @@
             transition: all 0.2s ease;
             box-sizing: border-box;
             cursor: pointer;
-            position: relative; /* Добавлено для позиционирования плашки */
+            position: relative;
         }
         .link-btn:hover {
             background-color: #30363d;
@@ -158,12 +158,38 @@
             font-size: 18px;
         }
         
+        /* Стили для заблокированной кнопки (Телеграм) */
+        .deleted-link {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+            background-color: #161b22;
+        }
+        .strike-text {
+            text-decoration: line-through;
+        }
+        .badge-banned {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            background-color: #8b949e; 
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 5;
+        }
+        
         /* Стили для плашки New */
         .badge-new {
             position: absolute;
             top: -10px;
             right: 10px;
-            background-color: #f85149; /* Яркий красный цвет GitHub */
+            background-color: #f85149;
             color: #ffffff;
             font-size: 11px;
             font-weight: bold;
@@ -299,9 +325,8 @@
             </div>
         </details>
 
-        <a href="https://t.me/baosag" class="link-btn" id="link-tg"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</a>
+        <a href="javascript:void(0);" class="link-btn deleted-link" id="link-tg"><span class="badge-banned">Banned</span> <span class="strike-text"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</span></a>
         
-        <!-- Добавлена кнопка X.com -->
         <a href="https://x.com/bbartsoul" class="link-btn" id="link-x" target="_blank" rel="noopener noreferrer"><span class="badge-new">New</span><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
         
         <a href="https://www.tiktok.com/@bbartsoul/" class="link-btn" id="link-tt"><i class="fa-brands fa-tiktok"></i> TikTok</a>
@@ -355,7 +380,7 @@
                     <p>I catch beauty in all its forms - from visuals to poetry and prose. But my ultimate dream remains big cinema. My goal is to shoot a feature film that will be impossible to distinguish from reality, and I am walking towards it step by step.</p>
                     <p>All this magic so far runs on pure enthusiasm, draining my time and very real resources. I sincerely ache for aesthetics, and your warm comments are the best band-aid for any bans. But if my visual world is especially close to you, you can always throw some fuel into my reactor via the donate button below (unfortunately, for now, this is only possible via cryptocurrency). Paying for numerous subscriptions to the most advanced AI services is sometimes a very expensive pleasure that I cannot always afford. Therefore, if you like what I do and would like me to continue and improve the quality of my work - you can write to me with a proposed donation amount. I will send you a link to pay for a subscription that I currently need (in this case, payment by card is possible).</p>
                     <p><b>P.S.</b> Generally, I do not like asking for donations, but I am ready to work for them - I am open for private commissions. I am ready to push the boundaries of reality for any photograph dear to you and create a unique cinematic story out of it - following your script or mine. Write to me via the form below.</p>`,
-                linkTg: '<i class="fa-brands fa-telegram"></i> My Telegram Gallery',
+                linkTg: '<span class="badge-banned">Banned</span> <span class="strike-text"><i class="fa-brands fa-telegram"></i> My Telegram Gallery</span>',
                 linkX: '<span class="badge-new">New</span><i class="fa-brands fa-x-twitter"></i> X (Twitter)',
                 linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Vimeo Video',
@@ -382,7 +407,7 @@
                     <p>Я ловлю красоту во всех ее формах - от визуала до стихов и прозы. Но моей голубой мечтой остается большое кино. Моя цель - снять полнометражный фильм, который будет невозможно отличить от реальности, и я иду к ней шаг за шагом.</p>
                     <p>Вся эта магия пока держится на чистом энтузиазме, выкачивая из меня время и вполне реальные ресурсы. Я искренне болею эстетикой, и ваши теплые комментарии - лучший пластырь от любых блокировок. Но если мой визуальный мир вам особенно близок, вы всегда можете подкинуть топлива в мой реактор через кнопку доната ниже (к сожалению, пока это возможно сделать только посредством криптовалюты). Оплата многочисленных подписок на самые передовые ИИ-сервисы - порой очень дорогое удовольствие, которое не всегда мне по карману. Поэтому, если вам нравится то, что я делаю, и вы бы хотели, чтобы я продолжал и повышал качество своих работ - можете написать мне с предложением суммы доната. Я пришлю вам ссылку на оплату подписки, которая мне на данный момент необходима (в этом случае оплата возможна по карте).</p>
                     <p><b>P.S.</b> Вообще я не люблю просить донаты, но я готов их отработать - я открыт для приватных заказов. Готов раздвинуть границы реальности для любой дорогой вам фотографии и создать из нее уникальную кинематографичную историю - по вашему или моему сценарию. Напишите мне через форму ниже.</p>`,
-                linkTg: '<i class="fa-brands fa-telegram"></i> Мой Telegram-канал',
+                linkTg: '<span class="badge-banned">Удалено</span> <span class="strike-text"><i class="fa-brands fa-telegram"></i> Мой Telegram канал</span>',
                 linkX: '<span class="badge-new">Новое</span><i class="fa-brands fa-x-twitter"></i> X (Twitter)',
                 linkTt: '<i class="fa-brands fa-tiktok"></i> TikTok',
                 linkVim: '<i class="fa-brands fa-vimeo-v"></i> Видео на Vimeo',
@@ -407,7 +432,7 @@
             document.getElementById('spoiler-content').innerHTML = translations[lang].spoilerContent;
             
             document.getElementById('link-tg').innerHTML = translations[lang].linkTg;
-            document.getElementById('link-x').innerHTML = translations[lang].linkX; // Обновление кнопки X
+            document.getElementById('link-x').innerHTML = translations[lang].linkX;
             document.getElementById('link-tt').innerHTML = translations[lang].linkTt;
             document.getElementById('link-vim').innerHTML = translations[lang].linkVim;
             document.getElementById('link-imgsrc').innerHTML = translations[lang].linkImgsrc;
